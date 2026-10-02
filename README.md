@@ -135,9 +135,18 @@ non-`HttpOnly` cookies and `localStorage`. A subdomain still receives cookies se
 domain, so check how your other applications scope their cookies.
 
 **Send the security headers if your host can.** `index.html` declares its Content-Security-Policy
-and referrer policy in `<meta>` tags, so they apply on any host. The policy allows this site, the
-import map by its hash, and the Genesys hosts of every region, and nothing else. A host that can
-send response headers should also send:
+and referrer policy in `<meta>` tags, so they apply on any host. The policy allows:
+
+- **scripts** from this site, the import map by its hash, and the Genesys `apps.` host of every
+  region;
+- **styles** from this site and the inline `<style>` by its hash, plus `style` attributes,
+  which the SDK sets on one of its iframes;
+- **frames** from the Genesys `apps.` hosts;
+- **images** from any `https:` URL, because bot cards can carry images from anywhere, and
+  `data:`;
+- **connections** to the Genesys API, WebSocket and upload hosts of every region.
+
+It allows nothing else. A host that can send response headers should also send:
 
 ```text
 Content-Security-Policy: <the policy from the meta tag>; frame-ancestors 'none'

@@ -1,10 +1,10 @@
 # Third-party notices
 
 The reference ships no third-party code. It does include the path data of a few icons, drawn as
-inline SVG by `src/chat/ui/icons/makeIcon.ts`, so that its buttons look like Genesys Messenger's.
-Genesys Messenger draws these same open-licensed icons. The path data was copied from the
-upstream sources below, never from Genesys' bundle, and each path in `makeIcon.ts` names its
-source.
+inline SVG by `makeIcon` (`chat/ui/icons/makeIcon`, compiled to `dist/` from `src/`), so that its
+buttons look like Genesys Messenger's. Genesys Messenger draws these same open-licensed icons. The
+path data was copied from the upstream sources below, never from Genesys' bundle, and each path
+in `makeIcon` names its source.
 
 ## Material UI icons (`@mui/icons-material` 9.4.0)
 
